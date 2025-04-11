@@ -1,0 +1,251 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  max-width: 100%;
+  padding: 20px;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+.navbar-left .logo {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+.navbar-left .site-title {
+  /* Youtube-like title */
+  font-size: 1em;
+  font-family: "Impact";
+}
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.navbar-center form {
+  width: 60%;
+}
+.navbar-center input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+}
+.navbar-right {
+  display: flex;
+  gap: 10px;
+}
+.navbar-right button {
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.navbar-right button:hover {
+  background-color: #e2e2e2;
+}
+
+/* Loader animation */
+.search-loading {
+  border: 2px solid red;
+  animation: search-loading-animation 2s infinite;
+}
+@keyframes search-loading-animation {
+  0% {
+    box-shadow: 0 0 0 0 red;
+  }
+  50% {
+    box-shadow: 0 0 10px 5px red;
+  }
+  100% {
+    box-shadow: 0 0 0 0 red;
+  }
+}
+
+/* Layout global */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  width: 100%;
+  margin: 0;
+}
+
+.cards-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0 20px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.left-column {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stats-card {
+  border: 2px solid #ffcccc;
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+.stats-card img.thumbnail {
+  width: 100%;
+  border-radius: 4px;
+}
+.raw-stats {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.secondary-stats-card {
+  border: 1px solid #ccccff;
+  background-color: #f2f2ff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.right-column .analysis-card:nth-child(1) {
+  background-color: #fce4ec;
+  border: 1px solid #f48fb1;
+}
+.right-column .analysis-card:nth-child(2) {
+  background-color: #e8f5e9;
+  border: 1px solid #81c784;
+}
+.right-column .analysis-card:nth-child(3) {
+  background-color: #e3f2fd;
+  border: 1px solid #64b5f6;
+}
+.right-column .analysis-card:nth-child(4) {
+  background-color: #fff3e0;
+  border: 1px solid #ffb74d;
+}
+.right-column .analysis-card:nth-child(5) {
+  background-color: #f3e5f5;
+  border: 1px solid #ba68c8;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  background-color: #fff;
+  flex-grow: 1;
+  max-height: calc(100vh - 150px);
+  overflow: auto;
+}
+.card h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.channel-stats-card {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.banner-container {
+  position: relative;
+}
+
+.channel-banner {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.banner-container + .stats-info {
+  margin-top: 50px;
+}
+
+.profile-pic-container {
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.profile-pic {
+  width: 100%;
+  height: auto;
+}
+
+.channel-info {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.channel-description {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.media-card {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 0;
+}
+
+.video-thumbnail,
+.channel-banner {
+  width: 100%;
+  display: block;
+}
+
+.profile-pic-container {
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.profile-pic {
+  width: 100%;
+  height: auto;
+}
+
+.stats-info p {
+  margin: 5px 10px;
+}

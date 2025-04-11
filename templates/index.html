@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube Intelligence</title>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-left">
+        <img
+          src="static/youtube-intelligence.png"
+          alt="YouTube Intelligence Logo"
+          class="logo"
+        />
+        <span class="site-title">YouTube Intelligence</span>
+      </div>
+      <div class="navbar-center">
+        <form id="analyze-form" method="POST" onsubmit="return validateForm()">
+          <input
+            type="text"
+            id="youtube-input"
+            name="youtube_url"
+            placeholder="Enter YouTube video or channel URL"
+            required
+          />
+        </form>
+      </div>
+      <div class="navbar-right">
+        <button type="submit" form="analyze-form">Analyze</button>
+        <button type="button" onclick="clearAnalysis()">Clear</button>
+      </div>
+    </header>
+
+    <div class="container">
+      {% if result %}
+      <div class="result" id="result-container">
+        <div class="cards-container">
+          <div class="left-column">
+            {% if result.stats %}
+            <div class="card media-card">
+              {% if result.stats.video_thumbnail %}
+              <img
+                src="{{ result.stats.video_thumbnail }}"
+                alt="Vignette Vidéo"
+                class="video-thumbnail"
+              />
+              {% elif result.stats.channel_banner and
+              result.stats.channel_profile_pic %}
+              <div class="banner-container">
+                <img
+                  src="{{ result.stats.channel_banner }}"
+                  alt="Bannière de chaîne"
+                  class="channel-banner"
+                />
+                <div class="profile-pic-container">
+                  <img
+                    src="{{ result.stats.channel_profile_pic }}"
+                    alt="Photo de profil"
+                    class="profile-pic"
+                  />
+                </div>
+              </div>
+              {% endif %}
+              <div class="stats-info">
+                {% for key, value in result.stats.items() %} {% if key not in
+                ['video_thumbnail', 'channel_banner', 'channel_profile_pic'] %}
+                <p>
+                  <strong>{{ key.replace('_', ' ')|title }}:</strong> {{ value
+                  }}
+                </p>
+                {% endif %} {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="right-column">
+            {% for key, content in result.analysis.items() %}
+            <div class="card analysis-card">
+              <h4>{{ key }}</h4>
+              <div>{{ content | safe }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <script>
+      document
+        .getElementById("youtube-input")
+        .classList.remove("search-loading");
+    </script>
+    <script src="static/script.js"></script>
+  </body>
+</html>
