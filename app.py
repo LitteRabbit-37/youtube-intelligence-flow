@@ -18,7 +18,7 @@ YOUTUBE_REGEX = re.compile(
 #########################################################################
 
 # LangFlow API endpoint: Update this URL with the actual flow ID endpoint as required.
-FLOW_URL = "http://127.0.0.1:7860/api/v1/run/73ce6066-03f9-4ac2-a899-edeeddfa6a75"
+FLOW_URL = "http://127.0.0.1:7860/api/v1/run/your_ID"
 
 
 @app.route("/", methods=["GET", "POST"])
